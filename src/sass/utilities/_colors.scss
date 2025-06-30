@@ -1,0 +1,19 @@
+$bgColor: #eeeeee;
+$lightGray: #d9d9d9;
+$gray: #b8b7b7;
+$darkGray: #8b8a8a;
+$white: #fff;
+$black: #000;
+
+:root {
+	--color-bg: #eeeeee; // Tło
+	--color-surface: #d9d9d9; // Sekcje / boxy
+	--color-text: #000000; // Główny tekst
+	--color-text-secondary: #8b8a8a; // Mniej ważny tekst
+	--color-border: #b8b7b7; // Linie, obramowania
+	--color-accent: rgb(141, 141, 171);
+	--color-white: #fff;
+}
+
+.dark-mode {
+}
