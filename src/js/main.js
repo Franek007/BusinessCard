@@ -23,7 +23,11 @@ dokonał.`
 let quoteAuthorText = `— Ralph Waldo Emerson`
 let timeout
 
+// Carousel properties
 let isDragging = false
+let startX = 0
+let endX = 0
+let move
 
 const main = () => {
 	prepareDOMElements()
@@ -53,6 +57,7 @@ const prepareDOMEvents = () => {
 	dropDownList.addEventListener('click', handleDropDownMobileNav)
 	changeThemeBtn.addEventListener('click', handleThemeBtn)
 	carouselBoxes.forEach(box => {
+		// Desktop
 		box.addEventListener('mouseenter', () => {
 			carouselBoxes.forEach(box => {
 				box.style.animationPlayState = 'paused'
@@ -60,6 +65,18 @@ const prepareDOMEvents = () => {
 		})
 
 		box.addEventListener('mouseleave', () => {
+			carouselBoxes.forEach(box => {
+				box.style.animationPlayState = 'running'
+			})
+		})
+
+		// Mobile
+		box.addEventListener('touchstart', () => {
+			carouselBoxes.forEach(box => {
+				box.style.animationPlayState = 'paused'
+			})
+		})
+		box.addEventListener('touchend', () => {
 			carouselBoxes.forEach(box => {
 				box.style.animationPlayState = 'running'
 			})
@@ -80,7 +97,8 @@ const prepareDOMEvents = () => {
 		technologiesBox.style.cursor = 'grabbing'
 	})
 	technologiesBox.addEventListener('touchstart', e => {
-		startX = e.clientX
+		startX = e.touches[0].clientX
+		console.log(`To jes startX ${startX}`)
 	})
 
 	// Carousel checking if its grabbing
@@ -100,9 +118,9 @@ const prepareDOMEvents = () => {
 		handleCarousel()
 	})
 	technologiesBox.addEventListener('touchend', e => {
-		endX = e.clientX
-		move = endX - startX together
-		console.log(move);
+		endX = e.changedTouches[0].clientX
+		move = endX - startX
+		console.log(move)
 		handleCarousel()
 	})
 
@@ -139,10 +157,6 @@ const handleMobileNav = () => {
 	burgerBtn.classList.toggle('burgerBtn--active')
 }
 
-let startX = 0
-let endX = 0
-let move
-
 const handleCarousel = e => {
 	console.log(move)
 	carouselBoxes.forEach(box => {
@@ -152,6 +166,9 @@ const handleCarousel = e => {
 	const logKey = document.querySelector('.LogKey')
 	logKey.innerHTML = `Początek X: ${startX} ----- Koniec X: ${endX}`
 }
+
+const wall = document.querySelector('.about__slider-item--wall')
+let test = wall.getBoundingClientRect()
 
 const handleDropDownMobileNav = () => {
 	const caretDownSrc = './dist/img/caret-down.svg'
