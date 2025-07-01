@@ -1,0 +1,12 @@
+@use 'components/components' as *;
+
+.footer {
+	position: relative;
+	padding: 1em 2em;
+	width: 100%;
+	background-color: var(--color-border);
+
+	&__text {
+		text-align: center;
+	}
+}

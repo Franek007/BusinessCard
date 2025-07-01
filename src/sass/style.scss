@@ -4,6 +4,7 @@
 @use 'components/header';
 @use 'components/about';
 @use 'components/contact';
+@use 'components/footer';
 
 *,
 *::before,
@@ -19,7 +20,7 @@ html {
 }
 
 ::selection {
-	background-color: var(--color-accent);
+	background-color: var(--color-selection);
 }
 
 a {

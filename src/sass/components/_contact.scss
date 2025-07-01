@@ -6,6 +6,7 @@
 
 	&__form {
 		padding: 2em;
+		font-size: 1.8rem;
 		background-color: var(--color-surface);
 		border-radius: 4px;
 
@@ -21,8 +22,9 @@
 			font-family: 'Libre Baskerville';
 		}
 
-		&-input {
-			padding: 5px;
+		&-input,
+		&-textarea {
+			padding: 8px 5px;
 		}
 
 		&-input:focus-visible,
@@ -38,6 +40,11 @@
 
 		&-textBox {
 			margin-bottom: 1em;
+		}
+
+		&-error {
+			font-size: 1.4rem;
+			color: var(--color-error-text);
 		}
 	}
 
@@ -62,4 +69,11 @@
 	.error {
 		background-color: var(--color-error);
 	}
+}
+
+.contact__form-box.contact__form-error-input input,
+.contact__form-box.contact__form-error-input textarea {
+	background-color: var(--color-error-bg);
+	border: 1px solid var(--color-accent);
+	opacity: 0.8;
 }

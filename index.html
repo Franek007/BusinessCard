@@ -19,15 +19,15 @@
     <div class="wrapper">
         <a href="#" class="nav__icon">
             <i class="fa-solid fa-house"></i>
-            <!-- <p>FRubinowicz.com</p> -->
+            <!-- FRubinowicz.com -->
         </a>
         <button class="burgerBtn">
             <div></div>
         </button>
         <div class="nav__sidebar">
             <ul class="nav__items">
-                <li><a href="#" class="nav__item">O mnie</a></li>
-                <li class="nav__drop-down">
+                <li><a href="#about" class="nav__item">O mnie</a></li>
+                <!-- <li class="nav__drop-down">
                     <p class="nav__drop-down-label">Linki</p>
                     <img src="./dist/img/caret-down.svg" alt="carot icon" class="nav__drop-down-icon">
                     <ul class="nav__drop-down__list">
@@ -35,8 +35,9 @@
                         <li><a href="#" class="nav__drop-down-item">codePen</a></li>
                         <li><a href="#" class="nav__drop-down-item">Instagram</a></li>
                     </ul>
-                </li>
-                <li><a href="#" class="nav__item">Kontakt</a></li>
+                </li> -->
+                <li><a href="#portfolio.html" class="nav__item">Projekty</a></li>
+                <li><a href="#contact" class="nav__item">Kontakt</a></li>
             </ul>
             <div class="nav__appearance">
                 <p class="nav__appearance-label">Widok (Appearance)</p>
@@ -91,7 +92,7 @@
         </div>
     </header>
     <main>
-        <section class="section section-padding about">
+        <section class="section section-padding about" id="about">
             <div class="custom-shape-divider-top">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                     preserveAspectRatio="none">
@@ -174,7 +175,7 @@
                 </div>
             </div>
         </section>
-        <section class="section section-padding contact">
+        <section class="section section-padding contact" id="contact">
             <div class="custom-shape-divider-top">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
                     preserveAspectRatio="none">
@@ -191,16 +192,22 @@
                         <p class="contact__form-text">Skontaktuj się w każdej chwili</p>
                     </div>
                     <div class="contact__form-box">
-                        <label for="name">Imię:</label>
-                        <input type="text" id="name" name="name" required class="contact__form-input">
+                        <label for="name">Imię i nazwisko:</label>
+                        <input type="text" id="name" name="name" required class="contact__form-input"
+                            placeholder="Podaj imię i nazwisko">
+                        <p class="contact__form-error"></p>
                     </div>
                     <div class="contact__form-box">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required class="contact__form-input">
+                        <input type="email" id="email" name="email" required class="contact__form-input"
+                            placeholder="Podaj adres e-mail">
+                        <p class="contact__form-error"></p>
                     </div>
                     <div class="contact__form-box">
                         <label for="msg">Wiadomość:</label>
-                        <textarea name="msg" id="msg" required class="contact__form-textarea"></textarea>
+                        <textarea name="msg" id="msg" required class="contact__form-textarea"
+                            placeholder="Napisz treść wiadomości"></textarea>
+                        <p class="contact__form-error"></p>
                     </div>
                     <p class="contact__msg-status"></p>
                     <button class="contact__btn">Wyślij</button>
@@ -210,10 +217,9 @@
             </div>
         </section>
     </main>
-    <a href="page.html">asdads</a>
-    <p>Lubie ptaki</p>
-    <footer>
-    <p>Footer</p>
+    <hr>
+    <footer class="footer">
+    <p class="footer__text"> &copy <span class="footer__year"></span> Franciszek Rubinowicz</p>
 </footer>
 
     <script src="./dist/js/main.min.js"></script>

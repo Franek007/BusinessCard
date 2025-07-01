@@ -5,6 +5,8 @@ let dropDownList
 let firstBurgerBar
 let caretIcon
 let dropDownItems
+let navItems
+let navHomeIcon
 let quoteText
 let changeThemeBtn
 let chagneThemeBtnColor
@@ -14,6 +16,7 @@ let apostropheIcon
 let headingBox
 let technologiesBox
 let carouselBoxes
+let footerYear
 
 //Header text animation properties
 let index = 1
@@ -32,6 +35,9 @@ let move
 // Contact Form
 let contactSendBtn
 let emailInput
+let nameInput
+let msgInput
+let newArr
 
 const main = () => {
 	prepareDOMElements()
@@ -41,11 +47,13 @@ const main = () => {
 const prepareDOMElements = () => {
 	burgerBtn = document.querySelector('.burgerBtn')
 	navBar = document.querySelector('.nav')
-	navSideBar = document.querySelector('.nav__sidebar')
-	firstBurgerBar = document.querySelector('.firstBar')
-	dropDownList = document.querySelector('.nav__drop-down')
-	caretIcon = document.querySelector('.nav__drop-down-icon')
-	dropDownItems = document.querySelectorAll('.nav__drop-down-item')
+	navSideBar = navBar.querySelector('.nav__sidebar')
+	firstBurgerBar = navBar.querySelector('.firstBar')
+	// dropDownList = document.querySelector('.nav__drop-down')
+	// caretIcon = document.querySelector('.nav__drop-down-icon')
+	// dropDownItems = document.querySelectorAll('.nav__drop-down-item')
+	navItems = navBar.querySelectorAll('.nav__item')
+	navHomeIcon = navBar.querySelector('.nav__icon')
 	changeThemeBtn = document.querySelector('.nav__appearance-toggle')
 	chagneThemeBtnColor = document.querySelector('.nav__appearance-toggle--active')
 	quoteText = document.querySelector('.header__quote')
@@ -55,13 +63,21 @@ const prepareDOMElements = () => {
 	technologiesBox = document.querySelector('.about__slider')
 	carouselBoxes = document.querySelectorAll('.about__slider-box')
 	contactSendBtn = document.querySelector('.contact__btn')
-	emailInput = document.getElementById('#email')
-	console.log()
+	emailInput = document.getElementById('email')
+	nameInput = document.getElementById('name')
+	msgInput = document.getElementById('msg')
+	newArr = [...navItems]
+	newArr.push(navHomeIcon)
+	footerYear = document.querySelector('.footer__year')
 }
 
 const prepareDOMEvents = () => {
+	console.log(newArr)
 	burgerBtn.addEventListener('click', handleMobileNav)
-	dropDownList.addEventListener('click', handleDropDownMobileNav)
+	newArr.forEach(item => {
+		item.addEventListener('click', handleMobileNav)
+	})
+	// dropDownList.addEventListener('click', handleDropDownMobileNav)
 	changeThemeBtn.addEventListener('click', handleThemeBtn)
 	carouselBoxes.forEach(box => {
 		// Desktop
@@ -133,6 +149,7 @@ const prepareDOMEvents = () => {
 
 	contactSendBtn.addEventListener('click', handleContactForm)
 	writingAnimation()
+	getTime()
 }
 
 const handleContactForm = () => {
@@ -158,23 +175,43 @@ const handleContactForm = () => {
 		}, 3000)
 	}
 
-	const showError = msg => {
-		msgStatus.textContent = msg
+	const showError = (input, msg) => {
+		const formBox = input.parentElement
+		const errorText = formBox.querySelector('.contact__form-error')
+		errorText.textContent = msg
+		formBox.classList.add('contact__form-error-input')
 	}
 
-	const clearError = () => {
-		msgStatus.textContent = ''
+	const clearError = input => {
+		const formBox = input.parentElement
+		console.log(formBox)
+		errorText = formBox.querySelector('.contact__form-error')
+
+		errorText.textContent = ''
+		formBox.classList.remove('contact__form-error-input')
 	}
 
-	const checkMail = params => {
+	const checkMail = () => {
 		const re = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/
 
 		if (re.test(email.value)) {
-			clearError()
+			clearError(email)
 		} else {
-			showError('E-mail jest niepoprawny')
+			showError(email, 'E-mail jest niepoprawny')
 		}
 	}
+
+	const checkForm = input => {
+		input.forEach(el => {
+			if (el.value === '') {
+				showError(el, el.placeholder)
+			} else {
+				clearError(el)
+			}
+		})
+	}
+	checkForm([emailInput, msgInput, nameInput])
+	checkMail()
 }
 
 const writingAnimation = () => {
@@ -236,6 +273,11 @@ const handleDropDownMobileNav = () => {
 			item.classList.add('nav__drop-down-item')
 		})
 	}
+}
+
+const getTime = () => {
+	let year = new Date()
+	footerYear.textContent = year.getFullYear()
 }
 
 document.addEventListener('DOMContentLoaded', main)
