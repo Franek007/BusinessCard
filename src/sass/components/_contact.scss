@@ -1,0 +1,65 @@
+@use 'utilities/colors' as *;
+
+.contact {
+	position: relative;
+	overflow: hidden;
+
+	&__form {
+		padding: 2em;
+		background-color: var(--color-surface);
+		border-radius: 4px;
+
+		&-box {
+			display: flex;
+			flex-direction: column;
+			margin: 1em 0;
+		}
+
+		&-heading {
+			margin-bottom: 0.25em;
+			font-size: 2.4rem;
+			font-family: 'Libre Baskerville';
+		}
+
+		&-input {
+			padding: 5px;
+		}
+
+		&-input:focus-visible,
+		&-textarea:focus-visible {
+			outline: 1px solid var(--color-accent);
+		}
+
+		&-textarea {
+			min-height: 150px;
+			font-family: 'Source Sans 3', sans-serif;
+			resize: vertical;
+		}
+
+		&-textBox {
+			margin-bottom: 1em;
+		}
+	}
+
+	&__btn {
+		margin-top: 2em;
+		padding: 1em 2em;
+		border-radius: 2px;
+		border: 2px solid var(--color-accent);
+		background: none;
+		transition: background-color 0.3s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: var(--color-accent);
+		}
+	}
+
+	.succes {
+		background-color: var(--color-succes);
+	}
+
+	.error {
+		background-color: var(--color-error);
+	}
+}

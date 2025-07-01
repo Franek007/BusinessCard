@@ -3,6 +3,7 @@
 @use 'components/nav';
 @use 'components/header';
 @use 'components/about';
+@use 'components/contact';
 
 *,
 *::before,
@@ -15,6 +16,10 @@
 html {
 	font-size: 62.5%;
 	scroll-behavior: smooth;
+}
+
+::selection {
+	background-color: var(--color-accent);
 }
 
 a {

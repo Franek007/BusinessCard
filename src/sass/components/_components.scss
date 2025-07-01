@@ -6,6 +6,11 @@
 	max-width: 1200px;
 }
 
+.about,
+.contact .wrapper {
+	margin-top: 4.2em;
+}
+
 .section-padding {
 	padding: 4.2em 1em;
 }
@@ -42,6 +47,10 @@
 
 .custom-shape-divider-top .shape-fill {
 	fill: #eee;
+}
+
+.contact .custom-shape-divider-top .shape-fill {
+	fill: #fff;
 }
 
 @keyframes moving-shape-divider {

@@ -29,6 +29,10 @@ let startX = 0
 let endX = 0
 let move
 
+// Contact Form
+let contactSendBtn
+let emailInput
+
 const main = () => {
 	prepareDOMElements()
 	prepareDOMEvents()
@@ -50,6 +54,9 @@ const prepareDOMElements = () => {
 	headingBox = document.querySelector('.header__heading-box')
 	technologiesBox = document.querySelector('.about__slider')
 	carouselBoxes = document.querySelectorAll('.about__slider-box')
+	contactSendBtn = document.querySelector('.contact__btn')
+	emailInput = document.getElementById('#email')
+	console.log()
 }
 
 const prepareDOMEvents = () => {
@@ -124,10 +131,51 @@ const prepareDOMEvents = () => {
 		handleCarousel()
 	})
 
+	contactSendBtn.addEventListener('click', handleContactForm)
 	writingAnimation()
 }
 
-const handleGrabbingCarousel = () => {}
+const handleContactForm = () => {
+	const msgStatus = document.querySelector('.contact__msg-status')
+
+	console.log(document.location.search)
+
+	if (document.location.search === '?mail_status=sent') {
+		msgStatus.classList.add('success')
+		msgStatus.textContent = 'Wiadomość wysłana!'
+
+		setTimeout(() => {
+			msgStatus.classList.remove('success')
+		}, 3000)
+	}
+
+	if (document.location.search === '?mail_status=error') {
+		msgStatus.classList.add('error')
+		msgStatus.textContent = 'Wystąpił błąd.'
+
+		setTimeout(() => {
+			msgStatus.classList.remove('error')
+		}, 3000)
+	}
+
+	const showError = msg => {
+		msgStatus.textContent = msg
+	}
+
+	const clearError = () => {
+		msgStatus.textContent = ''
+	}
+
+	const checkMail = params => {
+		const re = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/
+
+		if (re.test(email.value)) {
+			clearError()
+		} else {
+			showError('E-mail jest niepoprawny')
+		}
+	}
+}
 
 const writingAnimation = () => {
 	// setTimeout(() => {
