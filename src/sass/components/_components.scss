@@ -19,7 +19,7 @@
 	margin-bottom: 1em;
 	font-size: 3.2rem;
 	font-family: 'Libre Baskerville';
-	// text-align: center;
+	text-align: center;
 }
 
 .sub-heading {
@@ -77,6 +77,18 @@
 	background-color: var(--color-text);
 	content: '';
 	z-index: 1000;
+}
+
+@mixin btnSeeThrough {
+	border-radius: 2px;
+	border: 2px solid var(--color-accent);
+	background: none;
+	transition: background-color 0.3s;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--color-accent);
+	}
 }
 
 .carousel {

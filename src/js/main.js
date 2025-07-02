@@ -66,16 +66,19 @@ const prepareDOMElements = () => {
 	emailInput = document.getElementById('email')
 	nameInput = document.getElementById('name')
 	msgInput = document.getElementById('msg')
-	newArr = [...navItems]
-	newArr.push(navHomeIcon)
 	footerYear = document.querySelector('.footer__year')
 }
 
 const prepareDOMEvents = () => {
 	console.log(newArr)
 	burgerBtn.addEventListener('click', handleMobileNav)
-	newArr.forEach(item => {
+	navItems.forEach(item => {
 		item.addEventListener('click', handleMobileNav)
+	})
+	navHomeIcon.addEventListener('click', () => {
+		if (navSideBar.classList.contains('nav__sidebar--active')) {
+			navSideBar.classList.remove('nav__sidebar--active')
+		}
 	})
 	// dropDownList.addEventListener('click', handleDropDownMobileNav)
 	changeThemeBtn.addEventListener('click', handleThemeBtn)
@@ -215,11 +218,6 @@ const handleContactForm = () => {
 }
 
 const writingAnimation = () => {
-	// setTimeout(() => {
-	// 	apostropheIcon.style.visibility = 'visible'
-	// 	apostropheIcon.style.opacity = '1'
-	// }, 100)
-
 	if (index >= quote.length) {
 		AuthorIndex = index - quote.length
 		quoteAuthor.innerHTML = quoteAuthorText.slice(0, AuthorIndex)
@@ -281,18 +279,3 @@ const getTime = () => {
 }
 
 document.addEventListener('DOMContentLoaded', main)
-
-// const fruits = ['banan', 'truskawa', 'malina', 'mandarynka', 'jabłko']
-// const newFruits = fruits.slice(3, 5)
-
-// console.log(newFruits);
-
-// let quote2 = `Najlepszym dowodem na to, że coś jest możliwe, jest fakt, że ktoś już tego
-// dokonał.`
-// let index2 = 1;
-
-// console.log(`test: ${quote2.length}`);
-
-// const animatedText = () => {
-// 	if(index2 <= quote2.length)
-// }
