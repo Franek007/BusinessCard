@@ -46,7 +46,7 @@
 }
 
 .custom-shape-divider-top .shape-fill {
-	fill: #eee;
+	fill: var(--color-bg-dark);
 }
 
 .contact .custom-shape-divider-top .shape-fill {
@@ -77,48 +77,4 @@
 	background-color: var(--color-text);
 	content: '';
 	z-index: 1000;
-}
-
-@mixin btnSeeThrough {
-	border-radius: 2px;
-	border: 2px solid var(--color-accent);
-	background: none;
-	transition: background-color 0.3s;
-	cursor: pointer;
-
-	&:hover {
-		background-color: var(--color-accent);
-	}
-}
-
-.carousel {
-	width: 200px;
-	overflow: hidden;
-}
-
-.carousel__track {
-	display: flex;
-	width: fit-content;
-	// animation: slide 4s linear infinite;
-}
-
-.item {
-	min-width: 200px;
-	height: 100px;
-	background: teal;
-	color: white;
-	font-size: 2rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-/* Animacja przesuwania w prawo (negatywna wartość) */
-@keyframes slide {
-	0% {
-		transform: translateX(0);
-	}
-	100% {
-		transform: translateX(-800px); /* (200px * 4) */
-	}
 }

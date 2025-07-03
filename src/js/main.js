@@ -233,6 +233,7 @@ const writingAnimation = () => {
 
 const handleThemeBtn = () => {
 	changeThemeBtn.classList.toggle('nav__appearance-toggle--active')
+	document.body.classList.toggle('dark-mode')
 }
 
 const handleMobileNav = () => {

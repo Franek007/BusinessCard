@@ -58,14 +58,9 @@ const javaScript = cb => {
 	cb()
 }
 
-// const convertImages = cb => {
-// 	src(paths.convertImage).pipe(imagemin()).pipe(dest(paths.distConvertImage))
-// 	cb()
-// }
-
-function convertImages(done) {
+const convertImages = cb => {
 	src(paths.convertImage).pipe(imagemin()).pipe(dest(paths.distConvertImage))
-	done()
+	cb()
 }
 
 const cleanStuff = cb => {
