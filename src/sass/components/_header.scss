@@ -8,8 +8,14 @@
 	flex-direction: column;
 	height: 100vh;
 
-	.wrapper {
-		position: relative;
+	&__box {
+		height: 100%;
+		width: 100%;
+		max-width: 400px;
+
+		&--right {
+			display: none;
+		}
 	}
 
 	&__img {
@@ -19,7 +25,6 @@
 
 	&__heading-box {
 		display: flex;
-		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		font-size: 1.8rem;
@@ -35,7 +40,6 @@
 
 	&__qoute-author {
 		margin-top: 1.5em;
-		margin-right: auto;
 		font-size: 1.6rem;
 		color: var(--color-text-secondary);
 	}
@@ -55,7 +59,6 @@
 	}
 
 	&__btn {
-		// display: flex;
 		padding: 0.5em 1em;
 		font-size: 1.6rem;
 		font-family: 'Source Sans 3', sans-serif;
@@ -65,7 +68,8 @@
 		&--left {
 			width: 80%;
 			background-color: rgba(116, 100, 155, 0.8);
-			border: 1px solid #000;
+			background-color: var(--color-accent);
+			border: none;
 			transition: background-color 0.3s;
 			color: #fff;
 
@@ -76,9 +80,9 @@
 
 		&--right {
 			margin-top: 1em;
-			width: 40%;
+			width: 45%;
 			border: 1px solid var(--color-accent);
-			transition: color 0.3s;
+			transition: background-color 0.3s, color 0.3s;
 
 			&:hover .header__btn-link--right {
 				color: rgba(116, 100, 155, 1);
@@ -88,6 +92,98 @@
 		&-link {
 			color: #000;
 			text-decoration: none;
+		}
+	}
+}
+
+@media (width >= 576px) {
+	.header {
+		&__btn {
+			&--left {
+				width: 100%;
+				max-width: 300px;
+			}
+
+			&--right {
+				width: 60%;
+				max-width: 150px;
+			}
+		}
+
+		&__box {
+			max-width: 600px;
+
+			&--right {
+				display: none;
+			}
+		}
+	}
+}
+
+@media (width < 768px) {
+	.header {
+		.wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}
+
+@media (width >= 768px) {
+	.header {
+		.wrapper {
+			display: flex;
+			justify-content: space-around;
+		}
+	}
+
+	.header {
+		&__box {
+			max-width: 380px;
+
+			&--right {
+				display: flex;
+				align-items: center;
+			}
+		}
+
+		&__btns {
+			flex-direction: row;
+		}
+
+		&__btn {
+			&--left {
+				width: 100%;
+			}
+
+			&--right {
+				width: 60%;
+				margin-top: 0;
+				margin-left: 1em;
+			}
+		}
+	}
+}
+
+@media (width >= 992px) {
+	.header {
+		&__box {
+			max-width: 600px;
+		}
+
+		&__btn {
+			&--left {
+				width: 100%;
+				max-width: 300px;
+			}
+
+			&--right {
+				margin-top: 0;
+				margin-left: 1em;
+				width: 60%;
+				max-width: 150px;
+			}
 		}
 	}
 }
