@@ -21,6 +21,8 @@ const paths = {
 	distJavaScript: './dist/js',
 	convertImage: './src/img/*',
 	distConvertImage: './dist/img',
+	php: './src/php/**/*.php',
+	distPhp: './dist/php',
 }
 
 const sassCompiler = cb => {
@@ -58,6 +60,11 @@ const javaScript = cb => {
 	cb()
 }
 
+const phpScript = cb => {
+	src(paths.php).pipe(dest(paths.distPhp))
+	cb()
+}
+
 const convertImages = cb => {
 	src(paths.convertImage).pipe(imagemin()).pipe(dest(paths.distConvertImage))
 	cb()
@@ -84,11 +91,14 @@ const startBrowserSync = cb => {
 
 const watchForChanges = cb => {
 	watch('./*.html').on('change', reload)
-	watch([paths.html, paths.sass, paths.javaScript], parallel(handleKit, sassCompiler, javaScript)).on('change', reload)
+	watch(
+		[paths.html, paths.sass, paths.javaScript, paths.php],
+		parallel(handleKit, sassCompiler, javaScript, phpScript)
+	).on('change', reload)
 	watch(paths.convertImage, convertImages).on('change', reload)
 	cb()
 }
 
-const mainFunctions = parallel(handleKit, sassCompiler, javaScript, convertImages)
+const mainFunctions = parallel(handleKit, sassCompiler, javaScript, convertImages, phpScript)
 exports.cleanStuff = cleanStuff
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges)

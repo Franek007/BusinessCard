@@ -10,7 +10,7 @@ let carouselBoxes
 
 //Header text animation properties
 let index = 1
-let speed = 80
+let speed = 40
 let quote = `Najlepszym dowodem na to, że coś jest możliwe, jest fakt, że ktoś już tego
 dokonał.`
 let quoteAuthorText = `— Ralph Waldo Emerson`
@@ -30,11 +30,11 @@ let msgInput
 let newArr
 
 const main = () => {
-	prepareDOMElements()
-	prepareDOMEvents()
+	prepareDOMElements2()
+	prepareDOMEvents2()
 }
 
-const prepareDOMElements = () => {
+const prepareDOMElements2 = () => {
 	quoteText = document.querySelector('.header__quote')
 	quoteAuthor = document.querySelector('.header__qoute-author')
 	apostropheIcon = document.querySelector('.fa-quote-left')
@@ -45,9 +45,11 @@ const prepareDOMElements = () => {
 	emailInput = document.getElementById('email')
 	nameInput = document.getElementById('name')
 	msgInput = document.getElementById('msg')
+	console.log('jestem tutaj tez')
 }
 
-const prepareDOMEvents = () => {
+const prepareDOMEvents2 = () => {
+	console.log('jestem tutaj')
 	carouselBoxes.forEach(box => {
 		// Desktop
 		box.addEventListener('mouseenter', () => {
@@ -111,6 +113,10 @@ const prepareDOMEvents = () => {
 	})
 
 	contactSendBtn.addEventListener('click', handleContactForm)
+
+	contactSendBtn.addEventListener('click', () => {
+		console.log('Klikam')
+	})
 	writingAnimation()
 }
 
@@ -174,9 +180,8 @@ const handleContactForm = () => {
 }
 
 const writingAnimation = () => {
-	console.log('dksjdaskjdjk')
 	if (index >= quote.length) {
-		AuthorIndex = index - quote.length
+		let AuthorIndex = index - quote.length
 		quoteAuthor.innerHTML = quoteAuthorText.slice(0, AuthorIndex)
 	} else {
 		quoteText.innerHTML = quote.slice(0, index)
@@ -192,9 +197,6 @@ const handleCarousel = e => {
 	carouselBoxes.forEach(box => {
 		box.style.transform = `translateX(${move}px)`
 	})
-
-	const logKey = document.querySelector('.LogKey')
-	logKey.innerHTML = `Początek X: ${startX} ----- Koniec X: ${endX}`
 }
 
 document.addEventListener('DOMContentLoaded', main)

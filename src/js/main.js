@@ -1,10 +1,14 @@
 let burgerBtn
 let navBar
 let sideBar
+let navSideBar
 let firstBurgerBar
 let navItems
 let navHomeIcon
+let changeThemeBtns
+let chagneThemeBtnColor
 let footerYear
+let isDark = false
 
 const main = () => {
 	prepareDOMElements()
@@ -24,6 +28,7 @@ const prepareDOMElements = () => {
 }
 
 const prepareDOMEvents = () => {
+	savedTheme()
 	burgerBtn.addEventListener('click', handleMobileNav)
 	navItems.forEach(item => {
 		item.addEventListener('click', handleMobileNav)
@@ -42,8 +47,34 @@ const prepareDOMEvents = () => {
 const handleThemeBtn = () => {
 	changeThemeBtns.forEach(btn => {
 		btn.classList.toggle('nav__appearance-toggle--active')
+		localStorage.setItem('isActive', 'true')
 	})
-	document.body.classList.toggle('dark-mode')
+	// document.body.classList.toggle('dark-mode')
+
+	const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light'
+
+	if (currentTheme === 'dark') {
+		document.body.classList.remove('dark-mode')
+		localStorage.setItem('theme', 'light')
+	} else {
+		document.body.classList.add('dark-mode')
+		localStorage.setItem('theme', 'dark')
+	}
+}
+
+const savedTheme = () => {
+	const savedTheme = localStorage.getItem('theme')
+	const activeAnimation = localStorage.getItem('isActive')
+
+	if (savedTheme === 'dark') {
+		document.body.classList.add('dark-mode')
+	}
+
+	if (activeAnimation === 'true') {
+		changeThemeBtns.forEach(btn => {
+			btn.classList.toggle('nav__appearance-toggle--active')
+		})
+	}
 }
 
 const handleMobileNav = () => {
