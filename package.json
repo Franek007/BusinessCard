@@ -1,31 +1,30 @@
 {
-	"name": "strona",
+	"name": "strona g",
 	"version": "1.0.0",
+	"description": "",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "Franek",
+	"author": "",
 	"license": "ISC",
-	"description": "",
 	"devDependencies": {
-		"@babel/core": "^7.24.7",
-		"@babel/preset-env": "^7.24.7",
-		"browser-sync": "^3.0.2",
-		"esbuild": "^0.25.6",
-		"gulp": "^5.0.0",
-		"gulp-autoprefixer": "^8.0.0",
+		"@babel/core": "^7.12.10",
+		"@babel/preset-env": "^7.12.11",
+		"browser-sync": "^2.26.13",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
 		"gulp-babel": "^8.0.0",
 		"gulp-clean": "^0.4.0",
 		"gulp-cssnano": "^2.1.3",
-		"gulp-esbuild": "^0.14.0",
 		"gulp-imagemin": "^7.1.0",
 		"gulp-kit": "^0.3.0",
 		"gulp-rename": "^2.0.0",
-		"gulp-sass": "^5.1.0",
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-uglify": "^3.0.2",
-		"sass": "^1.77.6"
-	}
+		"gulp-sass": "^5.1.0",
+		"sass": "^1.49.7"
+	},
+	"dependencies": {}
 }

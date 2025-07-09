@@ -27,7 +27,8 @@ let contactSendBtn
 let emailInput
 let nameInput
 let msgInput
-let newArr
+let checkboxInput
+let checkBoxParent
 
 const main = () => {
 	prepareDOMElements2()
@@ -45,11 +46,11 @@ const prepareDOMElements2 = () => {
 	emailInput = document.getElementById('email')
 	nameInput = document.getElementById('name')
 	msgInput = document.getElementById('msg')
-	console.log('jestem tutaj tez')
+	checkboxInput = document.querySelector('.contact__checkbox')
+	checkBoxParent = document.querySelector('.contact__checkbox-box')
 }
 
 const prepareDOMEvents2 = () => {
-	console.log('jestem tutaj')
 	carouselBoxes.forEach(box => {
 		// Desktop
 		box.addEventListener('mouseenter', () => {
@@ -113,10 +114,6 @@ const prepareDOMEvents2 = () => {
 	})
 
 	contactSendBtn.addEventListener('click', handleContactForm)
-
-	contactSendBtn.addEventListener('click', () => {
-		console.log('Klikam')
-	})
 	writingAnimation()
 }
 
@@ -150,7 +147,7 @@ const handleContactForm = () => {
 
 	const clearError = input => {
 		const formBox = input.parentElement
-		errorText = formBox.querySelector('.contact__form-error')
+		const errorText = formBox.querySelector('.contact__form-error')
 
 		errorText.textContent = ''
 		formBox.classList.remove('contact__form-error-input')
@@ -166,6 +163,16 @@ const handleContactForm = () => {
 		}
 	}
 
+	const checkCheckbox = () => {
+		if (checkboxInput.checked == false) {
+			checkBoxParent.style.border = '1px solid var(--color-accent)'
+			checkBoxParent.style.padding = '0.5em 1em'
+		} else {
+			checkBoxParent.style.border = 'none'
+			checkBoxParent.style.padding = '0'
+		}
+	}
+
 	const checkForm = input => {
 		input.forEach(el => {
 			if (el.value === '') {
@@ -175,6 +182,8 @@ const handleContactForm = () => {
 			}
 		})
 	}
+
+	checkCheckbox()
 	checkForm([emailInput, msgInput, nameInput])
 	checkMail()
 }

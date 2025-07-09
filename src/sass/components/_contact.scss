@@ -85,6 +85,28 @@
 	.error {
 		background-color: var(--color-error);
 	}
+
+	&__checkbox-box {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	&__link {
+		color: var(--color-accent);
+	}
+
+	&__checkbox {
+		margin-top: 0.25em;
+		margin-right: 0.5em;
+		border: 5px solid pink;
+		font-size: 1.4rem;
+	
+	}
+
+	&__checkbox-text {
+		margin: 0;
+		font-size: 1.4rem;
+	}
 }
 
 .contact__form-box.contact__form-error-input input,

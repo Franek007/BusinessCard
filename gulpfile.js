@@ -7,98 +7,87 @@ const babel = require('gulp-babel')
 const uglify = require('gulp-uglify')
 const imagemin = require('gulp-imagemin')
 const sourcemaps = require('gulp-sourcemaps')
-const browserSync = require('browser-sync').create()
-const reload = browserSync.reload
 const clean = require('gulp-clean')
 const kit = require('gulp-kit')
+const browserSync = require('browser-sync').create()
+const reload = browserSync.reload
 
 const paths = {
 	html: './html/**/*.kit',
 	sass: './src/sass/**/*.scss',
-	distSass: './dist/css',
+	js: './src/js/**/*.js',
+	img: './src/img/**/*',
 	dist: './dist',
-	javaScript: './src/js/**/*.js',
-	distJavaScript: './dist/js',
-	convertImage: './src/img/*',
-	distConvertImage: './dist/img',
+	sassDest: './dist/css',
+	jsDest: './dist/js',
+	imgDest: './dist/img',
 	php: './src/php/**/*.php',
 	distPhp: './dist/php',
 }
 
-const sassCompiler = cb => {
+function sassCompiler(done) {
 	src(paths.sass)
 		.pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(cssnano())
-		.pipe(
-			rename({
-				suffix: '.min',
-			})
-		)
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write())
-		.pipe(dest(paths.distSass))
-	cb()
+		.pipe(dest(paths.sassDest))
+	done()
 }
 
-const javaScript = cb => {
-	src(paths.javaScript)
+function javaScript(done) {
+	src(paths.js)
 		.pipe(sourcemaps.init())
-		.pipe(
-			babel({
-				presets: ['@babel/env'],
-			})
-		)
+		.pipe(babel({ presets: ['@babel/env'] }))
 		.pipe(uglify())
-		.pipe(
-			rename({
-				suffix: '.min',
-			})
-		)
+		.pipe(rename({ suffix: '.min' }))
 		.pipe(sourcemaps.write())
-		.pipe(dest(paths.distJavaScript))
-	cb()
+		.pipe(dest(paths.jsDest))
+	done()
 }
 
-const phpScript = cb => {
+function phpScript(done) {
 	src(paths.php).pipe(dest(paths.distPhp))
-	cb()
+	done()
 }
 
-const convertImages = cb => {
-	src(paths.convertImage).pipe(imagemin()).pipe(dest(paths.distConvertImage))
-	cb()
+function convertImages(done) {
+	src(paths.img).pipe(imagemin()).pipe(dest(paths.imgDest))
+	done()
 }
 
-const cleanStuff = cb => {
-	src(paths.dist, { read: false }).pipe(clean())
-	cb()
-}
-
-const handleKit = cb => {
+function handleKits(done) {
 	src(paths.html).pipe(kit()).pipe(dest('./'))
-	cb()
+	done()
 }
 
-const startBrowserSync = cb => {
+function cleanStuff(done) {
+	src(paths.dist, { read: false }).pipe(clean())
+	done()
+}
+
+function startBrowserSync(done) {
 	browserSync.init({
 		server: {
 			baseDir: './',
 		},
 	})
-	cb()
+
+	done()
 }
 
-const watchForChanges = cb => {
+function watchForChanges(done) {
 	watch('./*.html').on('change', reload)
-	watch(
-		[paths.html, paths.sass, paths.javaScript, paths.php],
-		parallel(handleKit, sassCompiler, javaScript, phpScript)
-	).on('change', reload)
-	watch(paths.convertImage, convertImages).on('change', reload)
-	cb()
+	watch([paths.html, paths.sass, paths.js], parallel(handleKits, sassCompiler, javaScript, phpScript)).on(
+		'change',
+		reload
+	)
+	watch(paths.img, convertImages).on('change', reload)
+	done()
 }
 
-const mainFunctions = parallel(handleKit, sassCompiler, javaScript, convertImages, phpScript)
+const mainFunctions = parallel(handleKits, sassCompiler, javaScript, convertImages, phpScript)
 exports.cleanStuff = cleanStuff
 exports.default = series(mainFunctions, startBrowserSync, watchForChanges)

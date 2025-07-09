@@ -47,9 +47,10 @@ const prepareDOMEvents = () => {
 const handleThemeBtn = () => {
 	changeThemeBtns.forEach(btn => {
 		btn.classList.toggle('nav__appearance-toggle--active')
-		localStorage.setItem('isActive', 'true')
+		btn.classList.contains('nav__appearance-toggle--active')
+			? localStorage.setItem('isActive', 'true')
+			: localStorage.setItem('isActive', 'false')
 	})
-	// document.body.classList.toggle('dark-mode')
 
 	const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light'
 
@@ -72,7 +73,11 @@ const savedTheme = () => {
 
 	if (activeAnimation === 'true') {
 		changeThemeBtns.forEach(btn => {
-			btn.classList.toggle('nav__appearance-toggle--active')
+			btn.classList.add('nav__appearance-toggle--active')
+		})
+	} else {
+		changeThemeBtns.forEach(btn => {
+			btn.classList.remove('nav__appearance-toggle--active')
 		})
 	}
 }
