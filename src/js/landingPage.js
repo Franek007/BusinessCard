@@ -10,9 +10,8 @@ let carouselBoxes
 
 //Header text animation properties
 let index = 1
-let speed = 40
-let quote = `Najlepszym dowodem na to, że coś jest możliwe, jest fakt, że ktoś już tego
-dokonał.`
+let speed = 30
+let quote = `Jedyną osobą, którą jesteś przeznaczony się stać, jest ta, którą postanowisz się staćć`
 let quoteAuthorText = `— Ralph Waldo Emerson`
 let timeout
 

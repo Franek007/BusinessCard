@@ -79,32 +79,6 @@
 		z-index: 1000;
 	}
 
-	&__drop-down {
-		position: relative;
-		display: flex;
-		align-items: center;
-		padding: 0.5em 0;
-		line-height: 1.2;
-		color: var(--color-text);
-		cursor: pointer;
-
-		&__list {
-			position: absolute;
-			top: 90%;
-			left: 5%;
-			background-color: yellow;
-		}
-
-		&-item {
-			display: none;
-			padding: 0.5em 1em;
-		}
-
-		&-icon {
-			margin-left: auto;
-		}
-	}
-
 	&__appearance {
 		display: flex;
 		align-items: center;
@@ -186,8 +160,6 @@
 		width: 100%;
 		opacity: 0;
 		visibility: hidden;
-		// opacity: 1;
-		// visibility: visible;
 		background-color: var(--color-surface);
 		transition: visibility 0.3s, opacity 0.3s, color 0.3s;
 		z-index: -99;
