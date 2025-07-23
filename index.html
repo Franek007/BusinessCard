@@ -23,8 +23,7 @@
 <link rel="icon" href="/favicon.svg" type="image/x-icon">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 
-<link rel="stylesheet" href="./dist/css/style.min.css" media="print" onload="this.media='all'">
-    <link rel="canonical" href="https://FRubinowicz.pl" />
+<link rel="stylesheet" href="./dist/css/style.min.css" media="print" onload="this.media='all'">    <link rel="canonical" href="https://FRubinowicz.pl" />
     <meta name="description"
         content="Franciszek Rubinowicz — Web Developer ze Szczecina. Tworzę nowoczesne strony, które pomagają rozwinąć Twój biznes. Razem zbudujmy coś wyjątkowego.">
 
@@ -47,7 +46,7 @@
             </ul>
             <div class="nav__appearance">
                 <p class="nav__appearance-label">Widok</p>
-                <button class="nav__appearance-toggle">
+                <button class="nav__appearance-toggle" aria-label="Zmien motyw storny jasny / ciemny" role="button">
                     <i class="fa-solid fa-moon fa-sm" style="color: #fff;"></i>
                     <i class="fa-solid fa-sun fa-sm" style="color: #3d3d3d;"></i>
                 </button>
@@ -103,8 +102,7 @@
             </a>
         </ul>
     </div>
-</nav>
-    <header class=" section section-padding header">
+</nav>    <header class=" section section-padding header">
         <div class="wrapper">
 
             <div class="header__box">
@@ -121,7 +119,8 @@
                 </div>
             </div>
             <div class="header__box--right">
-                <img src="./dist/img/iphone-14.webp" alt="Ręka w której leży telefon" class="header__img">
+                <img src="./dist/img/iphone-14-1200com.webp" alt="Ręka w której leży telefon" class="header__img"
+                    loading="lazy">
             </div>
         </div>
     </header>
@@ -142,7 +141,7 @@
                         <picture>
                             <source srcset="./dist/img/FranekImg-1200com.jpeg" media="(min-width: 992px)">
                             <img src="./dist/img/FranekImg-600com.jpeg" alt="Zdjęcie Franciszka Rubinowicza"
-                                class="about__img" loading="lazy">
+                                class="about__img" loading="lazy" width="1200" height="900">
                         </picture>
                     </div>
                     <div class="about__box-text">
@@ -171,7 +170,7 @@
                             <div class="about__slider">
                                 <div class="about__slider-box">
                                     <div class="about__slider-item about__slider-item--wall"><img
-                                            src="./src/img/technologies/css.svg" alt="css icon"
+                                            src="./dist/img/technologies/css.svg" alt="css icon"
                                             class="about__slider-icon">
                                     </div>
 
@@ -298,8 +297,7 @@
             </svg>
         </a>
     </div>
-</footer>
-    <script src="./dist/js/main.min.js" type="module"></script>
+</footer>    <script src="./dist/js/main.min.js" type="module"></script>
     <script src="./dist/js/landingPage.min.js" type="module"></script>
 </body>
 
