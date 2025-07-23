@@ -7,16 +7,23 @@
     <title>FRubinowicz | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
+
+<link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap">
+</noscript>
+
 <script src="https://kit.fontawesome.com/c8836c9201.js" crossorigin="anonymous"></script>
 
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.svg" type="image/x-icon">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 
-<link rel="stylesheet" href="./dist/css/style.min.css">
+<link rel="stylesheet" href="./dist/css/style.min.css" media="print" onload="this.media='all'">
     <link rel="canonical" href="https://FRubinowicz.pl/Portfolio" />
     <meta name="description" content="Zobacz moje projekty!">
 
@@ -105,7 +112,7 @@
                         clip-rule="evenodd" />
                 </svg><a href="portfolio.html" class="portfolio__whereAmI-link">Portfolio</a>
             </div>
-            <h1 class="section-heading">Projekty</h1>
+            <h1 class="section-heading header__heading">Projekty</h1>
             <p>Tu na razie jest ściernisko, ale będzie San Francisco</p>
             <div class="portfolio__boxes">
 

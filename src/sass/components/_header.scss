@@ -57,7 +57,7 @@
 		width: 100%;
 		margin-top: 100px;
 	}
-	
+
 	&__btn {
 		padding: 0.5em 1em;
 		font-size: 1.6rem;
@@ -68,6 +68,9 @@
 		cursor: pointer;
 
 		&--left {
+			display: flex;
+			justify-content: center;
+			align-items: center;
 			width: 80%;
 			background-color: var(--color-accent);
 			border: none;

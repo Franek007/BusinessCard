@@ -7,16 +7,23 @@
     <title>Franciszek Rubinowicz — Web Developer Szczecin</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
+
+<link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+
+<noscript>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap">
+</noscript>
+
 <script src="https://kit.fontawesome.com/c8836c9201.js" crossorigin="anonymous"></script>
 
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.svg" type="image/x-icon">
 <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 
-<link rel="stylesheet" href="./dist/css/style.min.css">
+<link rel="stylesheet" href="./dist/css/style.min.css" media="print" onload="this.media='all'">
     <link rel="canonical" href="https://FRubinowicz.pl" />
     <meta name="description"
         content="Franciszek Rubinowicz — Web Developer ze Szczecina. Tworzę nowoczesne strony, które pomagają rozwinąć Twój biznes. Razem zbudujmy coś wyjątkowego.">
@@ -122,7 +129,7 @@
         <section class="section section-padding about" id="about">
             <div class="custom-shape-divider-top">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
+                    preserveAspectRatio="none" aria-label="Shape-diviader" role="img">
                     <path
                         d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
                         class="shape-fill"></path>
@@ -132,7 +139,11 @@
                 <h2 class="section-heading">O mnie</h2>
                 <div class="about__box">
                     <div class="about__box-img">
-                        <img src="./dist/img/FranekImg.jpeg" alt="Zdjęcie Franciszka Rubinowicza" class="about__img">
+                        <picture>
+                            <source srcset="./dist/img/FranekImg-1200com.jpeg" media="(min-width: 992px)">
+                            <img src="./dist/img/FranekImg-600com.jpeg" alt="Zdjęcie Franciszka Rubinowicza"
+                                class="about__img" loading="lazy">
+                        </picture>
                     </div>
                     <div class="about__box-text">
                         <p class="about__text--big">Cześć!</p>
@@ -165,44 +176,49 @@
                                     </div>
 
                                     <div class="about__slider-item"><img src="./dist/img/technologies/html.svg"
-                                            alt="html icon" class="about__slider-icon">
+                                            alt="html icon" class="about__slider-icon" loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img src="./dist/img/technologies/js.svg"
-                                            alt="JavaScript icon" class="about__slider-icon">
+                                            alt="JavaScript icon" class="about__slider-icon" loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img src="./dist/img/technologies/tailwind.svg"
-                                            alt="tailwind icon" class="about__slider-icon" class="about__slider-icon">
+                                            alt="tailwind icon" class="about__slider-icon" class="about__slider-icon"
+                                            loading="lazy">
                                     </div>
                                 </div>
                                 <div class="about__slider-box">
                                     <div class="about__slider-item"><img src="./dist/img/technologies/react.svg"
-                                            alt="react icon" class="about__slider-icon" class="about__slider-icon">
+                                            alt="react icon" class="about__slider-icon" class="about__slider-icon"
+                                            loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img src="./dist/img/technologies/bootstrap.svg"
-                                            alt="bootstrap icon" class="about__slider-icon" class="about__slider-icon">
+                                            alt="bootstrap icon" class="about__slider-icon" class="about__slider-icon"
+                                            loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img src="./dist/img/technologies/sass.svg"
-                                            alt="sass icon" class="about__slider-icon" class="about__slider-icon">
+                                            alt="sass icon" class="about__slider-icon" class="about__slider-icon"
+                                            loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img
                                             src="./dist/img/technologies/visual-studio-code.svg"
                                             alt="Visual Studio Code icon" class="about__slider-icon"
-                                            class="about__slider-icon">
+                                            class="about__slider-icon" loading="lazy">
                                     </div>
                                 </div>
                                 <div class="about__slider-box">
                                     <div class="about__slider-item"><img src="./dist/img/technologies/css.svg"
-                                            alt="css icon" class="about__slider-icon">
+                                            alt="css icon" class="about__slider-icon" loading="lazy">
                                     </div>
 
                                     <div class="about__slider-item"><img src="./dist/img/technologies/html.svg"
-                                            alt="html icon" class="about__slider-icon">
+                                            alt="html icon" class="about__slider-icon" loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img src="./dist/img/technologies/js.svg"
-                                            alt="JavaScript icon" class="about__slider-icon">
+                                            alt="JavaScript icon" class="about__slider-icon" loading="lazy">
                                     </div>
                                     <div class="about__slider-item"><img src="./dist/img/technologies/tailwind.svg"
-                                            alt="tailwind icon" class="about__slider-icon" class="about__slider-icon">
+                                            alt="tailwind icon" class="about__slider-icon" class="about__slider-icon"
+                                            loading="lazy">
                                     </div>
                                 </div>
                             </div>
@@ -216,7 +232,7 @@
         <section class="section section-padding contact" id="contact">
             <div class="custom-shape-divider-top">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
-                    preserveAspectRatio="none">
+                    preserveAspectRatio="none" aria-label="Shape-diviader" role="img">
                     <path
                         d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
                         class="shape-fill"></path>
