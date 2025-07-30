@@ -76,7 +76,7 @@ const prepareDOMEvents2 = () => {
 		})
 	})
 
-	// Carousel checking if the cursor is on an element
+	// // Carousel checking if the cursor is on an element
 	// technologiesBox.addEventListener('mouseleave', () => {
 	// 	isDragging = false
 	// 	technologiesBox.style.cursor = 'grab'
