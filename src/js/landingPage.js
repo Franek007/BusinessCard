@@ -36,8 +36,7 @@ const main = () => {
 
 const prepareDOMElements2 = () => {
 	quoteText = document.querySelector('.header__quote')
-	quoteAuthor = document.querySelector('.header__qoute-author')
-	apostropheIcon = document.querySelector('.fa-quote-left')
+	quoteAuthor = document.querySelector('.header__quote-author')
 	headingBox = document.querySelector('.header__heading-box')
 	technologiesBox = document.querySelector('.about__slider')
 	carouselBoxes = document.querySelectorAll('.about__slider-box')
