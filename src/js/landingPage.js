@@ -77,39 +77,39 @@ const prepareDOMEvents2 = () => {
 	})
 
 	// Carousel checking if the cursor is on an element
-	technologiesBox.addEventListener('mouseleave', () => {
-		isDragging = false
-		technologiesBox.style.cursor = 'grab'
-	})
+	// technologiesBox.addEventListener('mouseleave', () => {
+	// 	isDragging = false
+	// 	technologiesBox.style.cursor = 'grab'
+	// })
 
-	// Carousel calculating starting point
-	technologiesBox.addEventListener('mousedown', e => {
-		isDragging = true
-		startX = e.clientX
-		technologiesBox.style.cursor = 'grabbing'
-	})
-	technologiesBox.addEventListener('touchstart', e => {
-		startX = e.touches[0].clientX
-	})
+	// // Carousel calculating starting point
+	// technologiesBox.addEventListener('mousedown', e => {
+	// 	isDragging = true
+	// 	startX = e.clientX
+	// 	technologiesBox.style.cursor = 'grabbing'
+	// })
+	// technologiesBox.addEventListener('touchstart', e => {
+	// 	startX = e.touches[0].clientX
+	// })
 
-	// Carousel checking if its grabbing
-	technologiesBox.addEventListener('mousemove', () => {
-		if (isDragging == true) return
-		technologiesBox.style.cursor = 'grab'
-	})
+	// // Carousel checking if its grabbing
+	// technologiesBox.addEventListener('mousemove', () => {
+	// 	if (isDragging == true) return
+	// 	technologiesBox.style.cursor = 'grab'
+	// })
 
-	// Carousel calculating ending point and moving
-	technologiesBox.addEventListener('mouseup', e => {
-		endX = e.clientX
-		move = endX - startX
-		technologiesBox.style.cursor = 'grab'
-		handleCarousel()
-	})
-	technologiesBox.addEventListener('touchend', e => {
-		endX = e.changedTouches[0].clientX
-		move = endX - startX
-		handleCarousel()
-	})
+	// // Carousel calculating ending point and moving
+	// technologiesBox.addEventListener('mouseup', e => {
+	// 	endX = e.clientX
+	// 	move = endX - startX
+	// 	technologiesBox.style.cursor = 'grab'
+	// 	handleCarousel()
+	// })
+	// technologiesBox.addEventListener('touchend', e => {
+	// 	endX = e.changedTouches[0].clientX
+	// 	move = endX - startX
+	// 	handleCarousel()
+	// })
 
 	contactSendBtn.addEventListener('click', handleContactForm)
 	writingAnimation()
