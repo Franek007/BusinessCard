@@ -90,6 +90,10 @@ const handleMobileNav = () => {
 const getTime = () => {
 	let year = new Date()
 	footerYear.textContent = year.getFullYear()
+	console.log(
+		'%c Made with ❤️ by Franek Rubinowicz → frubinowicz.com ',
+		'color: #fff; background: linear-gradient(to right, #2c3e50, #4ca1af); padding: 12px 24px; font-size: 16px; border-radius: 8px; font-family: monospace;'
+	)
 }
 
 document.addEventListener('DOMContentLoaded', main)
